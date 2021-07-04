@@ -24,8 +24,8 @@ class BottomNavigation extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                       color: Colors.grey.shade100,
-                      blurRadius: 10,
-                      spreadRadius: 5),
+                      blurRadius: 4,
+                      spreadRadius: 0),
                 ],
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(26),

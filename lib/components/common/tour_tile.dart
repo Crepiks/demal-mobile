@@ -7,6 +7,7 @@ class TourTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: 120,
       child: Row(
         children: [
           Expanded(

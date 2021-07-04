@@ -22,12 +22,17 @@ class _ToursScreenState extends State<ToursScreen> {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 26, left: 24, right: 24),
-              child: SizedBox(
-                height: 120,
-                child: TourTile(),
-              ),
+            Expanded(
+              child: Padding(
+                  padding: EdgeInsets.only(top: 26, left: 24, right: 24),
+                  child: ListView.builder(
+                      itemCount: 10,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: 16),
+                          child: TourTile(),
+                        );
+                      })),
             )
           ],
         ),
