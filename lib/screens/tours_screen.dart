@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:demal/components/common/tour_tile.dart";
 
 class ToursScreen extends StatefulWidget {
   const ToursScreen({Key? key}) : super(key: key);
@@ -19,6 +20,13 @@ class _ToursScreenState extends State<ToursScreen> {
               child: Text(
                 "Ближайшие туры",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 26, left: 24, right: 24),
+              child: SizedBox(
+                height: 120,
+                child: TourTile(),
               ),
             )
           ],
