@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:demal/common/components/bottom_navigation.dart';
 
 void main() => runApp(App());
 
@@ -13,21 +14,22 @@ class App extends StatelessWidget {
           brightness: Brightness.light,
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent),
-      home: MyStatefulWidget(),
+      home: MainScreens(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
 /// This is the stateful widget that the main application instantiates.
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+class MainScreens extends StatefulWidget {
+  const MainScreens({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  State<MainScreens> createState() => _MainScreensState();
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _MainScreensState extends State<MainScreens> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -67,37 +69,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(10))),
-          child: BottomNavigationBar(
-            selectedFontSize: 0,
-            selectedIconTheme: IconThemeData(color: Colors.purple),
-            type: BottomNavigationBarType.fixed,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.supervised_user_circle_outlined),
-                label: '',
-              ),
-            ],
-            currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
-          ),
-        ));
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            child: BottomNavigation()));
   }
 }
