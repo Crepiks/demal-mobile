@@ -1,7 +1,17 @@
 import "package:flutter/material.dart";
+import 'package:flutter/services.dart';
 
 class BottomNavigation extends StatelessWidget {
-  const BottomNavigation({Key? key}) : super(key: key);
+  late final List<Icon> icons;
+  late final int selectedIndex;
+  late final onTabPress;
+
+  BottomNavigation(
+      {Key? key,
+      required this.icons,
+      required this.selectedIndex,
+      required this.onTabPress})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +23,8 @@ class BottomNavigation extends StatelessWidget {
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.grey.shade200,
-                      blurRadius: 14,
+                      color: Colors.grey.shade100,
+                      blurRadius: 10,
                       spreadRadius: 5),
                 ],
                 borderRadius: BorderRadius.only(
@@ -24,32 +34,20 @@ class BottomNavigation extends StatelessWidget {
                 padding: EdgeInsets.only(left: 40, right: 40, bottom: 20),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.home_outlined,
-                        size: 34,
-                        color: Colors.purple,
-                      ),
-                      Icon(
-                        Icons.park_outlined,
-                        size: 34,
-                        color: Colors.purple.shade100,
-                      ),
-                      Icon(
-                        Icons.map_outlined,
-                        size: 34,
-                        color: Colors.purple.shade100,
-                      ),
-                      Icon(
-                        Icons.hearing_outlined,
-                        size: 34,
-                        color: Colors.purple.shade100,
-                      ),
-                      Icon(
-                        Icons.person_outlined,
-                        size: 34,
-                        color: Colors.purple.shade100,
-                      ),
-                    ]))));
+                    children: icons
+                        .map(
+                          (icon) => IconButton(
+                            color: icons.indexOf(icon) == selectedIndex
+                                ? Colors.purple
+                                : Colors.purple.shade100,
+                            icon: icon,
+                            iconSize: 34,
+                            onPressed: () {
+                              HapticFeedback.selectionClick();
+                              this.onTabPress(icons.indexOf(icon));
+                            },
+                          ),
+                        )
+                        .toList()))));
   }
 }

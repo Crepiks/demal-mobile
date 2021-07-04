@@ -20,7 +20,6 @@ class App extends StatelessWidget {
   }
 }
 
-/// This is the stateful widget that the main application instantiates.
 class MainScreens extends StatefulWidget {
   const MainScreens({Key? key}) : super(key: key);
 
@@ -28,49 +27,55 @@ class MainScreens extends StatefulWidget {
   State<MainScreens> createState() => _MainScreensState();
 }
 
-/// This is the private State class that goes with MyStatefulWidget.
 class _MainScreensState extends State<MainScreens> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
+
+  static TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _pages = <Widget>[
     Text(
       'Index 0: Home',
       style: optionStyle,
     ),
     Text(
-      'Index 1: Business',
+      'Index 1: Tours',
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Index 2: Map',
       style: optionStyle,
     ),
     Text(
-      'Index 3: Settings',
+      'Index 3: Saved tours',
       style: optionStyle,
     ),
     Text(
-      'Index 4: Settings',
+      'Index 4: Profile',
       style: optionStyle,
     ),
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
+          child: _pages.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10))),
-            child: BottomNavigation()));
+            child: BottomNavigation(icons: <Icon>[
+              Icon(Icons.home_outlined),
+              Icon(Icons.park_outlined),
+              Icon(Icons.map_outlined),
+              Icon(Icons.favorite_border_outlined),
+              Icon(Icons.person_outlined)
+            ], selectedIndex: _selectedIndex, onTabPress: _onTabItemPressed)));
+  }
+
+  void _onTabItemPressed(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 }
