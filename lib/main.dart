@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:demal/common/components/bottom_navigation.dart';
+import 'package:demal/components/common/bottom_navigation.dart';
+import "package:demal/screens/home_screen.dart";
 
 void main() => runApp(App());
 
@@ -33,10 +34,7 @@ class _MainScreensState extends State<MainScreens> {
   static TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static List<Widget> _pages = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
+    HomeScreen(),
     Text(
       'Index 1: Tours',
       style: optionStyle,
