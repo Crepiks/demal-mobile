@@ -31,7 +31,7 @@ class BottomNavigation extends StatelessWidget {
                     topLeft: Radius.circular(26),
                     topRight: Radius.circular(26))),
             child: Padding(
-                padding: EdgeInsets.only(left: 40, right: 40, bottom: 20),
+                padding: EdgeInsets.only(left: 30, right: 30, bottom: 20),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: icons
