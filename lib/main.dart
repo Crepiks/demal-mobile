@@ -1,8 +1,8 @@
-import 'package:demal/screens/tours_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:demal/components/common/bottom_navigation.dart';
 import "package:demal/screens/home_screen.dart";
-import "package:demal/screens/tours_screen.dart";
+import 'package:demal/screens/tours_screen.dart';
+import 'package:demal/screens/profile_screen.dart';
 
 void main() => runApp(App());
 
@@ -31,7 +31,7 @@ class MainScreens extends StatefulWidget {
 }
 
 class _MainScreensState extends State<MainScreens> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 4;
 
   static TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -46,10 +46,7 @@ class _MainScreensState extends State<MainScreens> {
       'Index 3: Saved tours',
       style: optionStyle,
     ),
-    Text(
-      'Index 4: Profile',
-      style: optionStyle,
-    ),
+    ProfileScreen()
   ];
 
   @override
