@@ -16,7 +16,7 @@ class _ToursScreenState extends State<ToursScreen> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 16),
+              padding: EdgeInsets.only(top: 10, bottom: 20),
               child: Text(
                 "Ближайшие туры",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
@@ -24,7 +24,7 @@ class _ToursScreenState extends State<ToursScreen> {
             ),
             Expanded(
               child: Padding(
-                  padding: EdgeInsets.only(top: 26, left: 24, right: 24),
+                  padding: EdgeInsets.symmetric(horizontal: 24),
                   child: ListView.builder(
                       itemCount: 10,
                       itemBuilder: (BuildContext context, int index) {

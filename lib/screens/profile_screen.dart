@@ -26,7 +26,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 16),
+                  padding: EdgeInsets.only(top: 10),
                   child: Text(
                     "Профиль",
                     style: TextStyle(
