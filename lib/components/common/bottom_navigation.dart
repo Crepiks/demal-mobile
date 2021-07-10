@@ -43,7 +43,7 @@ class BottomNavigation extends StatelessWidget {
                             icon: icon,
                             iconSize: 34,
                             onPressed: () {
-                              HapticFeedback.selectionClick();
+                              HapticFeedback.lightImpact();
                               this.onTabPress(icons.indexOf(icon));
                             },
                           ),
